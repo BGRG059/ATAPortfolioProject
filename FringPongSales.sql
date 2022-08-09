@@ -1,3 +1,5 @@
+-- link to data: https://github.com/AllThingsDataWithAngelina/DataSource/blob/main/sales_data_sample.csv
+
 
 -- Inspecting Data
 SELECT top 10 *
@@ -117,7 +119,7 @@ FROM rfm_calc c;
 SELECT customername, rfm_recency, rfm_frequency, rfm_monetary,
 	CASE
 		WHEN rfm_cell_string IN (111, 112, 121, 122, 123, 132, 211, 114, 141) THEN 'Lost Customers'
-		WHEN rfm_cell_string IN (133, 134, 143, 244, 334, 343, 344, 144) THEN 'Slipping Away, Cannot Lose' -- (Big spenders who haven’t purchased lately) slipping away
+		WHEN rfm_cell_string IN (133, 134, 143, 244, 334, 343, 344, 144) THEN 'Slipping Away, Cannot Lose' -- (Big spenders who havenâ€™t purchased lately) slipping away
 		WHEN rfm_cell_string IN (311, 411, 331) THEN 'New Customers'
 		WHEN rfm_cell_string IN (222, 223, 233, 322) THEN 'Potential Churners'
 		WHEN rfm_cell_string IN (323, 333,321, 422, 332, 432, 423, 421) THEN 'Active' --(Customers who buy often & recently, but at low price points)

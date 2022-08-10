@@ -22,7 +22,9 @@ FROM		[dbo].['P1-OfficeSupplies$']
 GROUP BY	rep, region
 
 -- Displays total revenue per  reps with highest on top. Here reps are grouped according to their region.
--- Applying Concat('$ ', Sum(Round(Units*"UNIT PRICE",0))) to display $ in front of tot sales figures doesn't allow tot sales column to be displayed in desc/asc order.
+-- Problem to solve:
+--      Applying Concat('$ ', Sum(Round(Units*"UNIT PRICE",0))) 
+--      to display $ in front of tot sales figures doesn't allow tot sales column to be displayed in desc/asc order.
 SELECT		region, rep, Sum(Round(Units*"UNIT PRICE",0)) AS TotalSales
 FROM		[dbo].['P1-OfficeSupplies$']
 GROUP BY	rep, region
